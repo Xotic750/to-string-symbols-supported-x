@@ -24,7 +24,7 @@
 ES6 abstract ToString with Symbol conversion support.
 
 **See**: [7.1.12 ToString ( argument )](http://www.ecma-international.org/ecma-262/6.0/#sec-tostring)  
-**Version**: 1.0.0  
+**Version**: 1.0.2  
 **Author**: Xotic750 <Xotic750@gmail.com>  
 **License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
 **Copyright**: Xotic750  
