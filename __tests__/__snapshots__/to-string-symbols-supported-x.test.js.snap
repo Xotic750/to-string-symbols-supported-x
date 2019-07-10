@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic tests should throw for Object.create(null) 1`] = `"Cannot convert object to primitive value"`;

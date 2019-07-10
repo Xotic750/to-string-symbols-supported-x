@@ -21,37 +21,40 @@
 <a name="module_to-string-symbols-supported-x"></a>
 
 ## to-string-symbols-supported-x
+
 ES6 abstract ToString with Symbol conversion support.
 
 **See**: [7.1.12 ToString ( argument )](http://www.ecma-international.org/ecma-262/6.0/#sec-tostring)  
 **Version**: 1.0.2  
 **Author**: Xotic750 <Xotic750@gmail.com>  
-**License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
+**License**: [MIT](https://opensource.org/licenses/MIT)  
 **Copyright**: Xotic750  
 <a name="exp_module_to-string-symbols-supported-x--module.exports"></a>
 
 ### `module.exports(value)` ⇒ <code>string</code> ⏏
+
 The abstract operation ToString converts argument to a value of type String,
 however the specification states that if the argument is a Symbol then a
 'TypeError' is thrown. This version also allows Symbols be converted to
 a string. Other uncoercible exotics will still throw though.
 
 **Kind**: Exported function  
-**Returns**: <code>string</code> - The converted value.  
+**Returns**: <code>string</code> - The converted value.
 
-| Param | Type | Description |
-| --- | --- | --- |
+| Param | Type            | Description                       |
+| ----- | --------------- | --------------------------------- |
 | value | <code>\*</code> | The value to convert to a string. |
 
-**Example**  
-```js
-var toStringSymbolsSupported = require('to-string-symbols-supported-x');
+**Example**
 
-toStringSymbolsSupported(); // 'undefined'
-toStringSymbolsSupported(null); // 'null'
-toStringSymbolsSupported('abc'); // 'abc'
-toStringSymbolsSupported(true); // 'true'
-toStringSymbolsSupported(Symbol('foo')); // 'Symbol('foo')'
-toStringSymbolsSupported(Object(Symbol('foo'))); // 'Symbol('foo')'
-toStringSymbolsSupported(Object.create(null)); // TypeError
+```js
+import toStringSymbolsSupported from 'to-string-symbols-supported-x';
+
+console.log(toStringSymbolsSupported()); // 'undefined'
+console.log(toStringSymbolsSupported(null)); // 'null'
+console.log(toStringSymbolsSupported('abc')); // 'abc'
+console.log(toStringSymbolsSupported(true)); // 'true'
+console.log(toStringSymbolsSupported(Symbol('foo'))); // 'Symbol('foo')'
+console.log(toStringSymbolsSupported(Object(Symbol('foo')))); // 'Symbol('foo')'
+console.log(toStringSymbolsSupported(Object.create(null))); // TypeError
 ```
