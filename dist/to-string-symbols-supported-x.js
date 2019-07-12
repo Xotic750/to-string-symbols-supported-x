@@ -1,13 +1,14 @@
 /*!
 {
+  "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2015-present",
-  "date": "2019-07-10T18:41:56.475Z",
+  "date": "2019-07-12T13:48:16.043Z",
   "describe": "",
   "description": "ES6 abstract ToString with Symbol conversion support.",
   "file": "to-string-symbols-supported-x.js",
-  "hash": "0a96f6ad4cbaf047ea43",
+  "hash": "31cb75edefb79589eea9",
   "license": "MIT",
-  "version": "2.0.0"
+  "version": "2.0.1"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -119,7 +120,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -129,71 +130,8 @@ return /******/ (function(modules) { // webpackBootstrap
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = toStringSymbolsSupported;
-
-var _hasSymbolSupportX = _interopRequireDefault(__webpack_require__(1));
-
-var _isSymbol = _interopRequireDefault(__webpack_require__(2));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/* eslint-disable-next-line compat/compat */
-var pToString = _hasSymbolSupportX.default && Symbol.prototype.toString;
-var isSymbolFn = typeof pToString === 'function' && _isSymbol.default;
-/** @type {Function} */
-
-var castString = ''.constructor;
-/**
- * The abstract operation ToString converts argument to a value of type String,
- * however the specification states that if the argument is a Symbol then a
- * 'TypeError' is thrown. This version also allows Symbols be converted to
- * a string. Other uncoercible exotics will still throw though.
- *
- * @param {*} value - The value to convert to a string.
- * @returns {string} The converted value.
- */
-
-function toStringSymbolsSupported(value) {
-  return isSymbolFn && isSymbolFn(value) ? pToString.call(value) : castString(value);
-}
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * @file Tests if ES6 Symbol is supported.
- * @version 1.4.2
- * @author Xotic750 <Xotic750@gmail.com>
- * @copyright  Xotic750
- * @license {@link <https://opensource.org/licenses/MIT> MIT}
- * @module has-symbol-support-x
- */
-
-
-
-/**
- * Indicates if `Symbol`exists and creates the correct type.
- * `true`, if it exists and creates the correct type, otherwise `false`.
- *
- * @type boolean
- */
-module.exports = typeof Symbol === 'function' && typeof Symbol('') === 'symbol';
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
 var toStr = Object.prototype.toString;
-var hasSymbols = __webpack_require__(3)();
+var hasSymbols = __webpack_require__(1)();
 
 if (hasSymbols) {
 	var symToStr = Symbol.prototype.toString;
@@ -228,14 +166,14 @@ if (hasSymbols) {
 
 
 /***/ }),
-/* 3 */
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {
 
 var origSymbol = global.Symbol;
-var hasSymbolSham = __webpack_require__(5);
+var hasSymbolSham = __webpack_require__(3);
 
 module.exports = function hasNativeSymbols() {
 	if (typeof origSymbol !== 'function') { return false; }
@@ -246,10 +184,10 @@ module.exports = function hasNativeSymbols() {
 	return hasSymbolSham();
 };
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(4)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2)))
 
 /***/ }),
-/* 4 */
+/* 2 */
 /***/ (function(module, exports) {
 
 var g;
@@ -275,7 +213,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 5 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -321,6 +259,99 @@ module.exports = function hasSymbols() {
 
 	return true;
 };
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+
+// CONCATENATED MODULE: ./node_modules/attempt-x/dist/attempt-x.esm.js
+/**
+ * This method attempts to invoke the function, returning either the result or
+ * the caught error object. Any additional arguments are provided to the
+ * function when it's invoked.
+ *
+ * @param {Function} [fn] - The function to attempt.
+ * @param {...*} [args] - The arguments to invoke the function with.
+ * @returns {object} Returns an object of the result.
+ */
+function attempt(fn) {
+  try {
+    for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      args[_key - 1] = arguments[_key];
+    }
+
+    return {
+      threw: false,
+
+      /* eslint-disable-next-line babel/no-invalid-this */
+      value: fn.apply(this, args)
+    };
+  } catch (e) {
+    return {
+      threw: true,
+      value: e
+    };
+  }
+}
+;
+
+
+// EXTERNAL MODULE: ./node_modules/is-symbol/index.js
+var is_symbol = __webpack_require__(0);
+var is_symbol_default = /*#__PURE__*/__webpack_require__.n(is_symbol);
+
+// CONCATENATED MODULE: ./node_modules/has-symbol-support-x/dist/has-symbol-support-x.esm.js
+var _this = undefined;
+
+function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
+
+
+
+var hasSymbolSupport = attempt(function () {
+  _newArrowCheck(this, _this);
+
+  /* eslint-disable-next-line compat/compat */
+  return typeof Symbol === 'function' && is_symbol_default()(Symbol(''));
+}.bind(undefined));
+/**
+ * Indicates if `Symbol`exists and creates the correct type.
+ * `true`, if it exists and creates the correct type, otherwise `false`.
+ *
+ * @type boolean
+ */
+
+/* harmony default export */ var has_symbol_support_x_esm = (hasSymbolSupport.threw === false && hasSymbolSupport.value === true);
+
+
+// CONCATENATED MODULE: ./dist/to-string-symbols-supported-x.esm.js
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return toStringSymbolsSupported; });
+
+
+/* eslint-disable-next-line compat/compat */
+
+var pToString = has_symbol_support_x_esm && Symbol.prototype.toString;
+var isSymbolFn = typeof pToString === 'function' && is_symbol_default.a;
+/** @type {Function} */
+
+var castString = ''.constructor;
+/**
+ * The abstract operation ToString converts argument to a value of type String,
+ * however the specification states that if the argument is a Symbol then a
+ * 'TypeError' is thrown. This version also allows Symbols be converted to
+ * a string. Other uncoercible exotics will still throw though.
+ *
+ * @param {*} [value] - The value to convert to a string.
+ * @returns {string} The converted value.
+ */
+
+function toStringSymbolsSupported(value) {
+  return isSymbolFn && isSymbolFn(value) ? pToString.call(value) : castString(value);
+}
+
 
 
 /***/ })

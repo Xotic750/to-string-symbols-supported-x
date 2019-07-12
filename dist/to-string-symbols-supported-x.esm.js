@@ -1,12 +1,12 @@
 import hasSymbols from 'has-symbol-support-x';
 import isSymbol from 'is-symbol';
-
 /* eslint-disable-next-line compat/compat */
-const pToString = hasSymbols && Symbol.prototype.toString;
-const isSymbolFn = typeof pToString === 'function' && isSymbol;
-/** @type {Function} */
-const castString = ''.constructor;
 
+var pToString = hasSymbols && Symbol.prototype.toString;
+var isSymbolFn = typeof pToString === 'function' && isSymbol;
+/** @type {Function} */
+
+var castString = ''.constructor;
 /**
  * The abstract operation ToString converts argument to a value of type String,
  * however the specification states that if the argument is a Symbol then a
@@ -16,6 +16,9 @@ const castString = ''.constructor;
  * @param {*} [value] - The value to convert to a string.
  * @returns {string} The converted value.
  */
+
 export default function toStringSymbolsSupported(value) {
   return isSymbolFn && isSymbolFn(value) ? pToString.call(value) : castString(value);
 }
+
+//# sourceMappingURL=to-string-symbols-supported-x.esm.js.map
