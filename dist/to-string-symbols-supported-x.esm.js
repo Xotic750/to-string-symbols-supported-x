@@ -17,8 +17,10 @@ var castString = ''.constructor;
  * @returns {string} The converted value.
  */
 
-export default function toStringSymbolsSupported(value) {
+var toStringSymbolsSupported = function toStringSymbolsSupported(value) {
   return isSymbolFn && isSymbolFn(value) ? pToString.call(value) : castString(value);
-}
+};
+
+export default toStringSymbolsSupported;
 
 //# sourceMappingURL=to-string-symbols-supported-x.esm.js.map

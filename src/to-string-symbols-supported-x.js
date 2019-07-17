@@ -16,6 +16,8 @@ const castString = ''.constructor;
  * @param {*} [value] - The value to convert to a string.
  * @returns {string} The converted value.
  */
-export default function toStringSymbolsSupported(value) {
+const toStringSymbolsSupported = function toStringSymbolsSupported(value) {
   return isSymbolFn && isSymbolFn(value) ? pToString.call(value) : castString(value);
-}
+};
+
+export default toStringSymbolsSupported;
