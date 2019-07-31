@@ -2,13 +2,13 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2015-present",
-  "date": "2019-07-31T19:40:50.377Z",
+  "date": "2019-07-31T22:13:44.421Z",
   "describe": "",
   "description": "ES6 abstract ToString with Symbol conversion support.",
   "file": "to-string-symbols-supported-x.js",
   "hash": "1898953cb1e72cbe2254",
   "license": "MIT",
-  "version": "2.0.21"
+  "version": "2.0.22"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
