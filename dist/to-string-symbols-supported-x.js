@@ -2,7 +2,7 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2015-present",
-  "date": "2019-08-04T14:17:10.041Z",
+  "date": "2019-08-04T19:32:50.838Z",
   "describe": "",
   "description": "ES6 abstract ToString with Symbol conversion support.",
   "file": "to-string-symbols-supported-x.js",
