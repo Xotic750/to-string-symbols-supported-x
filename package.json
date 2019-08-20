@@ -1,6 +1,6 @@
 {
   "name": "to-string-symbols-supported-x",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "ES6 abstract ToString with Symbol conversion support.",
   "homepage": "https://github.com/Xotic750/to-string-symbols-supported-x",
   "author": {
@@ -51,7 +51,7 @@
     "url": "https://github.com/Xotic750/to-string-symbols-supported-x/issues"
   },
   "dependencies": {
-    "has-symbol-support-x": "^2.1.0",
+    "has-symbol-support-x": "^2.1.1",
     "is-symbol": "^1.0.2"
   },
   "devDependencies": {
